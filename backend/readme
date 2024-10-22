@@ -1,0 +1,7 @@
+#Build docker
+docker build -t welovebig-be:1.0.0 .
+
+#Run container
+# docker run --name welovebig-be -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=welovebig -p 3000:3000 -d welovebig-be:1.0.0
+
+docker run --name welovebig-be --link welovebig-db:welovebig-db -p 3000:3000 -d welovebig-be:1.0.0
